@@ -25,6 +25,7 @@
 
 (infix 1 + (2 * 3) - 4 + 5)
 
+(macroexpand-1 '(infix 1 + (2 * 3) - 4 + 5))
 ;; 2) bindings
 (defmacro with-out-file [& code]
   `(binding [*out* (clojure.java.io/writer "my.txt") ]
