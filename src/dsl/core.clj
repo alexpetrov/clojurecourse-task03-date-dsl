@@ -102,7 +102,7 @@
 (defn d-add [date op num period]
   (let [cal (cal-from-date date)]
     (do
-       (.add cal period (* num (op 1)))
+       (.add cal period (op num))
        (.getTime cal)))
   )
 
