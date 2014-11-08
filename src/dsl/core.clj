@@ -27,9 +27,8 @@
                     (if (> today tomorrow) (println "Time goes wrong"))
                     (if (<= yesterday today) (println "Correct"))
                     (let [six (+ 1 2 3)
-                          week -100
                           d1 (today - 2 days)
-                          d2 (today + week week)
+                          d2 (today + 1 week)
                           d3 (today + six months)
                           d4 (today + (one) year)]
                       (if (and (< d1 d2)
