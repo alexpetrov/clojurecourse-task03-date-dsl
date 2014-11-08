@@ -39,4 +39,15 @@
                   d4 (today + (one) year)]
               (and (< d1 d2)
                    (< d2 d3)
-                   (< d3 d4))))))))
+                   (< d3 d4)))))
+      (is (with-datetime
+            (if (> today tomorrow) (println "Time goes wrong"))
+            (if (<= yesterday today) (println "Correct"))
+            (let [six (+ 1 2 3)
+                  week 10
+                  d1 (today - week days)
+                  d2 (today - 10 days)]
+              (println d1)
+
+              (println d2)
+              (and (= d1 d2))))))))

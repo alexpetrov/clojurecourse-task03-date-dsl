@@ -27,8 +27,9 @@
                     (if (> today tomorrow) (println "Time goes wrong"))
                     (if (<= yesterday today) (println "Correct"))
                     (let [six (+ 1 2 3)
+                          week -100
                           d1 (today - 2 days)
-                          d2 (today + 1 week)
+                          d2 (today + week week)
                           d3 (today + six months)
                           d4 (today + (one) year)]
                       (if (and (< d1 d2)
@@ -36,6 +37,7 @@
                                (< d3 d4))
                         (println "DSL works correctly"))))
                  )
+
 )
 
 
@@ -129,7 +131,7 @@
 ;; в которых выполняется сравнение, и подставить вместо этого кода вызов d-op;
 ;; а для списков из четырех элементов, в которых создаются даты, подставить функцию d-add.
 (defn replace-period-param [form]
-  (postwalk-replace periods form))
+  (list (nth form 0) (nth form 1) (nth form 2) (periods (nth form 3))))
 
 (defn substitute-dsl [form]
   (do #_(println form)
