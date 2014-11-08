@@ -117,8 +117,7 @@
     (and (= (count code) 4)
          (or (= '+ op)
              (= '- op))
-         (contains? #{'day 'days 'week 'weeks 'month 'months 'year 'years
-                      'hour 'hours 'minute 'minutes 'second 'seconds} period ))))
+         (contains? periods period))))
 
 (defn is-date-cond? [code]
   (let [op (first code)]
