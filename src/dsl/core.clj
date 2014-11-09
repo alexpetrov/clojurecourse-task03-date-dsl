@@ -128,8 +128,8 @@
 ;; Нам необходимо пройтись по каждому элементу этого кода, найти все списки из 3-х элементов,
 ;; в которых выполняется сравнение, и подставить вместо этого кода вызов d-op;
 ;; а для списков из четырех элементов, в которых создаются даты, подставить функцию d-add.
-(defn replace-period-param [form]
-  (list (nth form 0) (nth form 1) (nth form 2) (periods (nth form 3))))
+(defn replace-period-param [[date op num period]]
+  (list date op num (periods period)))
 
 (defn substitute-dsl [form]
   (do #_(println form)
